@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function ExploreScreen() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to the Explore Screen!</Text>
+      <Button
+        title="go to flashcard"
+        onPress={() => router.push("/flashCardScreen")}
+      />
     </View>
   );
 }
