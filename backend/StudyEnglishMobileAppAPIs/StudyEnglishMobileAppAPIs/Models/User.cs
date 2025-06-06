@@ -15,6 +15,7 @@ namespace StudyEnglishMobileAppAPIs.Models
 
         public ICollection<WordLearning>? WordLearnings { get; set; }
         public ICollection<UserAnswer>? UserAnswers { get; set; }
+        public ICollection<UserTopic>? UserTopics { get; set; }
     }
 
 }

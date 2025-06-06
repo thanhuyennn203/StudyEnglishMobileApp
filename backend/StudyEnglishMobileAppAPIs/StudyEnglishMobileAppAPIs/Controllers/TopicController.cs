@@ -91,5 +91,25 @@ namespace StudyEnglishMobileAppAPIs.Controllers
 
             return NoContent();
         }
+
+        // GET: api/Topic/CompletedByUser/3
+        [HttpGet("CompletedByUser/{userId}")]
+        public async Task<ActionResult<IEnumerable<Topic>>> GetCompletedTopicsByUser(int userId)
+        {
+            var completedUserTopics = await _context.UserTopic
+                .Where(ut => ut.UserId == userId)
+                .Include(ut => ut.Topic)
+                .ToListAsync();
+
+            if (completedUserTopics == null || !completedUserTopics.Any())
+                return NotFound();
+
+            // Return only the Topic objects
+            var completedTopics = completedUserTopics.Select(ut => ut.Topic).ToList();
+
+            return completedTopics;
+        }
+
+
     }
 }

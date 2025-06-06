@@ -11,6 +11,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StudyEnglishMobileAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
 // ✅ Move CORS setup here, before app.Build()
 builder.Services.AddCors(options =>
 {

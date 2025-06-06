@@ -11,6 +11,7 @@ namespace StudyEnglishMobileAppAPIs.Models
 
          [ForeignKey("LevelId")]
         public Level Level { get; set; }
+        public ICollection<UserTopic>? UserTopics { get; set; }
     }
 
 }

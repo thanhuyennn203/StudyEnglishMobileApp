@@ -375,6 +375,55 @@
         }
       }
     },
+    "/api/Topic/CompletedByUser/{userId}": {
+      "get": {
+        "tags": [
+          "Topic"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Topic"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Topic"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Topic"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -835,6 +884,13 @@
           },
           "level": {
             "$ref": "#/components/schemas/Level"
+          },
+          "userTopics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTopic"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -882,6 +938,13 @@
               "$ref": "#/components/schemas/UserAnswer"
             },
             "nullable": true
+          },
+          "userTopics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTopic"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -923,6 +986,34 @@
           },
           "question": {
             "$ref": "#/components/schemas/Question"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserTopic": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "topicId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "topic": {
+            "$ref": "#/components/schemas/Topic"
           }
         },
         "additionalProperties": false

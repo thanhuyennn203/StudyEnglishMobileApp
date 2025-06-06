@@ -20,7 +20,7 @@ public class StudyEnglishMobileAppContext : DbContext
     public DbSet<Answer> Answers { get; set; }
     public DbSet<ExamWithQuestion> ExamWithQuestions { get; set; }
     public DbSet<UserAnswer> UserAnswers { get; set; }
-
+    public DbSet<UserTopic> UserTopic { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<WordLearning>()
@@ -112,5 +112,15 @@ public class StudyEnglishMobileAppContext : DbContext
             .HasOne(ua => ua.User)
             .WithMany()
             .HasForeignKey(ua => ua.UserId);
+
+        modelBuilder.Entity<UserTopic>()
+           .HasOne(ua => ua.User)
+           .WithMany(u => u.UserTopics)
+           .HasForeignKey(ua => ua.UserId);
+
+        modelBuilder.Entity<UserTopic>()
+          .HasOne(ua => ua.Topic)
+          .WithMany(u => u.UserTopics)
+          .HasForeignKey(ua => ua.TopicId);
     }
 }
