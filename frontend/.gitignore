@@ -37,3 +37,20 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# Local environment variables
+.env
+.env.local
+
+# VSCode settings
+.vscode/
+
+# JetBrains/IntelliJ/Android Studio settings
+.idea/
+*.iml
+
+# Node modules (installed dependencies)
+node_modules/
+
+# Log files
+*.log
