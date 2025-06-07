@@ -3233,23 +3233,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\MINHTUANIT\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj",
+      "projectUniqueName": "D:\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj",
       "projectName": "StudyEnglishMobileAppAPIs",
-      "projectPath": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\obj\\",
+      "projectPath": "D:\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj",
+      "packagesPath": "C:\\Users\\MINHTUANIT\\.nuget\\packages\\",
+      "outputPath": "D:\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MINHTUANIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3276,7 +3276,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -3314,7 +3314,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
