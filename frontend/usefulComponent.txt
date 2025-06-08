@@ -1,0 +1,15 @@
+      <View style={styles.progressCircle}>
+        <Progress.Circle
+          progress={(currentIndex + 1) / word.length}
+          size={56}
+          showsText={true}
+          formatText={() => `${word.length - currentIndex - 1}`}
+          color="#FF6F00"
+          borderWidth={2}
+          thickness={6}
+          unfilledColor="#FFE0B2"
+          textStyle={{ color: "#FF6F00", fontWeight: "bold", fontSize: 18 }}
+        />
+      </View>
+
+        progressCircle: { position: "absolute", top: 45, right: 30 },
