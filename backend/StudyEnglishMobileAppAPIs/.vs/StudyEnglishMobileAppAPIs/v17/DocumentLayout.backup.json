@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\usertopic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 275,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -107,20 +107,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TopicController.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAYwG8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAYwGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-05T04:17:27.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WordController.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
@@ -146,20 +146,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Topic.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwA0AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T16:09:48.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "StudyEnglishMobileAppContext.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\StudyEnglishMobileAppContext.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\StudyEnglishMobileAppContext.cs",
@@ -172,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\User.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\User.cs",
@@ -185,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Program.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Program.cs",
