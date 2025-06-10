@@ -27,7 +27,7 @@ export default function FlashCardScreen() {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const url = `http://192.168.1.17:5130/api/Words/by-topic/${topicId}`;
+    const url = `http://10.60.1.208:5130/api/Words/by-topic/${topicId}`;
     fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error("Network error");

@@ -20,7 +20,7 @@ const TakenTopicsScreen = () => {
 
   // Fetch topics
   useEffect(() => {
-    const url = "http://192.168.1.17:5130/api/Topic/CompletedByUser/" + userId;
+    const url = "http://192.168.1.110:5130/api/Topic/CompletedByUser/" + userId;
     fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error("Network error");
