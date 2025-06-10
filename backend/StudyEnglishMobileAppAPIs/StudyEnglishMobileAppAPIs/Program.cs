@@ -1,5 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudyEnglishMobileAppAPIs.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +15,34 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<StudyEnglishMobileAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
+
+
+// For Identity (Auth)
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection") ?? builder.Configuration.GetConnectionString("IdentityConnection")));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// Authencatin JWT
+// Add JWT Authentication
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSuperSecretKey";
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+    };
+});
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -42,7 +75,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
 app.UseAuthorization();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 
