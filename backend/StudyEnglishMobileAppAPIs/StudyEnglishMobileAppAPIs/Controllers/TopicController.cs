@@ -18,10 +18,23 @@ namespace StudyEnglishMobileAppAPIs.Controllers
             _context = context;
         }
 
-        // GET: api/Topic
+        //// GET: api/Topic
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
+        //{
+        //    return await _context.Topics.ToListAsync();
+        //}
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
+        public async Task<ActionResult<IEnumerable<Topic>>> GetTopics([FromQuery] int? levelId)
         {
+            if (levelId.HasValue)
+            {
+                return await _context.Topics
+                    .Where(t => t.LevelId == levelId)
+                    .ToListAsync();
+            }
+
             return await _context.Topics.ToListAsync();
         }
 
@@ -105,7 +118,7 @@ namespace StudyEnglishMobileAppAPIs.Controllers
                 return NotFound();
 
             // Return only the Topic objects
-            var completedTopics = completedUserTopics.Select(ut => ut.Topic).ToList();
+            var completedTopics = completedUserTopics.Where(t => t.Status == "Finished").Select(ut => ut.Topic).ToList();
 
             return completedTopics;
         }

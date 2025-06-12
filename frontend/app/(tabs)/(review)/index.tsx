@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, View, Image } from "react-native";
-import { Button, IconButton, ProgressBar } from "react-native-paper";
+import { Button, IconButton, ProgressBar, Avatar } from "react-native-paper";
 import { router } from "expo-router";
 import CustomText from "@/components/CustomText";
 import GameScreen from "./GameScreen";
 import TakenTopicsScreen from "./TakenTopicScreen";
+import TestScreen from "./TestScreen";
+import { useAuth } from "../../../hooks/useAuth";
 
 export default function MyCoursesScreen() {
   const [activeSection, setActiveSection] = useState("learned");
-
+  const { user } = useAuth();
+  const userName = user?.displayName;
   return (
     <View style={styles.container}>
       <ScrollView
@@ -21,14 +24,16 @@ export default function MyCoursesScreen() {
 
           <View style={styles.adCard}>
             <View style={styles.infoContainer}>
-              <CustomText style={styles.adTitle}>Hi Tom</CustomText>
+              <CustomText style={styles.adTitle}>Hi {userName}</CustomText>
               <CustomText style={styles.adText}>
                 Review your words every 2 days and double your retention rate.
               </CustomText>
             </View>
-            <Image
-              source={require("@/assets/images/avatar.jpg")}
-              style={styles.adImg}
+            <Avatar.Image
+              size={90}
+              source={{
+                uri: user?.avatarUrl || "@/assets/images/avatar.jpg",
+              }}
             />
           </View>
 
@@ -69,7 +74,7 @@ export default function MyCoursesScreen() {
         <View>
           {activeSection === "learned" && <TakenTopicsScreen />}
           {activeSection === "game" && <GameScreen />}
-          {activeSection === "test" && <GameScreen />}
+          {activeSection === "test" && <TestScreen />}
         </View>
       </ScrollView>
     </View>
@@ -81,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingTop: 50,
-    paddingBottom: 60,
+    paddingBottom: 50,
     backgroundColor: "#F9F9F9",
   },
   header: {},
@@ -109,7 +114,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   adTitle: {
-    fontSize: 30,
+    fontSize: 22,
     fontWeight: "bold",
   },
   adText: {

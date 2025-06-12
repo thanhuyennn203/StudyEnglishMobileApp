@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace StudyEnglishMobileAppAPIs.Models
 {
@@ -9,7 +10,8 @@ namespace StudyEnglishMobileAppAPIs.Models
         public string Title { get; set; }
         public int WordNumber { get; set; }
 
-         [ForeignKey("LevelId")]
+        [ForeignKey("LevelId")]
+        [JsonIgnore]
         public Level Level { get; set; }
         public ICollection<UserTopic>? UserTopics { get; set; }
     }

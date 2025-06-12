@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudyEnglishMobileAppAPIs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53da9b06393df27748f435ab7c6d6ced904c00ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed8bacbee8ed4de1e663b63dedbbfc324d485b2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudyEnglishMobileAppAPIs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudyEnglishMobileAppAPIs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\levelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\levelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\wordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\wordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\studyenglishmobileappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\controllers\\levelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|solutionrelative:studyenglishmobileappapis\\controllers\\levelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D2363FF-63B1-4F0B-AB37-BDA1CF37AFED}|StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs.csproj|f:\\cse441\\projectmobile\\studyenglishmobileapp\\backend\\studyenglishmobileappapis\\studyenglishmobileappapis\\models\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 275,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,7 +142,104 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\appsettings.json",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\appsettings.json",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\appsettings.json",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-11T02:20:43.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WordController.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T16:46:01.999Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Program.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Program.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Program.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Program.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAcwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:31:16.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TopicController.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAADwvxMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:17:27.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T13:30:10.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LevelController.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T04:13:53.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Topic.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T16:09:48.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwEIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T15:45:36.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Word.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Word.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Word.cs",
@@ -142,48 +247,11 @@
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\Word.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T16:14:20.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-04T16:14:20.254Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Topic.cs",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\Topic.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T16:09:48.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Properties\\launchSettings.json",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Properties\\launchSettings.json",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-05T04:33:15.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WordController.cs",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\WordController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAA+wHwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T16:46:01.999Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "StudyEnglishMobileAppContext.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\StudyEnglishMobileAppContext.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\StudyEnglishMobileAppContext.cs",
@@ -195,43 +263,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\User.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\User.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\User.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\User.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBQwBEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T16:01:18.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Program.cs",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Program.cs",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Program.cs",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:31:16.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TopicController.cs",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\TopicController.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAYwGYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:17:27.076Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "UserTopic.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\UserTopic.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\UserTopic.cs",
@@ -243,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\WeatherForecastController.cs",
@@ -255,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "HomeController.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\HomeController.cs",
@@ -267,19 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LevelController.cs",
-              "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
-              "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
-              "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
-              "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Controllers\\LevelController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T04:13:53.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Level.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Level.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Level.cs",
@@ -291,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Answer.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Answer.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Answer.cs",
@@ -303,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "WordLearningStatus.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\WordLearningStatus.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\WordLearningStatus.cs",
@@ -315,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "WordLearning.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\WordLearning.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\WordLearning.cs",
@@ -327,19 +359,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "UserAnswer.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\UserAnswer.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\UserAnswer.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\UserAnswer.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\UserAnswer.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAUAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wAUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T16:07:59.144Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Question.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Question.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Question.cs",
@@ -351,25 +383,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "LevelTestResult.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\LevelTestResult.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\LevelTestResult.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\LevelTestResult.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\LevelTestResult.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAUAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wAUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T16:24:13.43Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Exam.cs",
               "DocumentMoniker": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Exam.cs",
               "RelativeDocumentMoniker": "StudyEnglishMobileAppAPIs\\Models\\Exam.cs",
               "ToolTip": "F:\\CSE441\\ProjectMobile\\StudyEnglishMobileApp\\backend\\StudyEnglishMobileAppAPIs\\StudyEnglishMobileAppAPIs\\Models\\Exam.cs",
               "RelativeToolTip": "StudyEnglishMobileAppAPIs\\Models\\Exam.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA3wAUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T16:27:07.459Z"
             }

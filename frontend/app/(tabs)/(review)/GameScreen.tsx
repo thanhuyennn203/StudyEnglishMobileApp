@@ -1,13 +1,38 @@
-// screens/HomeScreen.js
-import CustomText from "@/components/CustomText";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import {
+  Avatar,
+  Button,
+  Text,
+  Searchbar,
+  Modal,
+  Portal,
+  Provider as PaperProvider,
+} from "react-native-paper";
 import { useRouter } from "expo-router";
-import React from "react";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
-import { Avatar, Button, Text, Searchbar } from "react-native-paper";
+import CustomText from "@/components/CustomText";
 
 export default function GameScreen() {
   const router = useRouter();
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+
+  const containerStyle = {
+    backgroundColor: "white",
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+    margin: 20,
+    borderRadius: 10,
+  };
+
   const images = [
     require("../../../assets/images/game_1.jpg"),
     require("../../../assets/images/game_2.jpg"),
@@ -16,50 +41,68 @@ export default function GameScreen() {
     require("../../../assets/images/game_5.jpg"),
     require("../../../assets/images/game_6.jpg"),
   ];
+
   const today = new Date();
   const options = { month: "short", day: "numeric", weekday: "short" };
   const formattedDate = today.toLocaleDateString("en-US", options);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <CustomText style={styles.header}>Explore Game</CustomText>
-      <Searchbar
-        value=""
-        placeholder="Search game..."
-        style={styles.searchBar}
-      />
-      <CustomText style={styles.date}>{formattedDate}</CustomText>
-      <CustomText style={styles.today}>Today</CustomText>
-      <Image
-        source={require("../../../assets/images/game_banner_1.jpg")}
-        style={styles.banner}
-      />
+    <PaperProvider>
+      <Portal>
+        <Modal
+          visible={visible}
+          onDismiss={hideModal}
+          contentContainerStyle={containerStyle}
+        >
+          <View style={{ alignItems: "center" }}>
+            <Image
+              source={require("@/assets/images/notavailable.jpg")}
+              style={{ width: 120, height: 120, marginBottom: 15 }}
+            />
+            <CustomText style={{ fontSize: 20, textAlign: "center" }}>
+              Game is not available now. May be back tomorrow!
+            </CustomText>
+          </View>
+        </Modal>
+      </Portal>
 
-      <View style={{ position: "relative" }}>
-        <Text variant="headlineMedium" style={styles.title}>
-          Clash Royale Halo
-        </Text>
-        <View style={styles.ratingRow}>
-          <CustomText style={styles.rating}>4.0</CustomText>
-          <CustomText>⭐⭐⭐⭐☆</CustomText>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <CustomText style={styles.header}>Explore Game</CustomText>
+        <Searchbar
+          value=""
+          placeholder="Search game..."
+          style={styles.searchBar}
+        />
+        <CustomText style={styles.date}>{formattedDate}</CustomText>
+        <CustomText style={styles.today}>Today</CustomText>
+        <Image
+          source={require("../../../assets/images/game_banner_1.jpg")}
+          style={styles.banner}
+        />
+
+        <View style={{ position: "relative" }}>
+          <Text variant="headlineMedium" style={styles.title}>
+            Clash Royale Halo
+          </Text>
+          <View style={styles.ratingRow}>
+            <CustomText style={styles.rating}>4.0</CustomText>
+            <CustomText>⭐⭐⭐⭐☆</CustomText>
+          </View>
+          <Button mode="contained" onPress={showModal} style={styles.getButton}>
+            GET
+          </Button>
         </View>
-        <Button mode="contained" onPress={() => {}} style={styles.getButton}>
-          GET
-        </Button>
-      </View>
 
-      <CustomText style={styles.subTitle}>You May Also Like</CustomText>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {images.map((imgSrc, index) => (
-          <Avatar.Image
-            key={index}
-            size={100}
-            source={imgSrc}
-            style={styles.avatar}
-          />
-        ))}
+        <CustomText style={styles.subTitle}>You May Also Like</CustomText>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {images.map((imgSrc, index) => (
+            <TouchableOpacity key={index} onPress={showModal}>
+              <Avatar.Image size={100} source={imgSrc} style={styles.avatar} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
       </ScrollView>
-    </ScrollView>
+    </PaperProvider>
   );
 }
 
