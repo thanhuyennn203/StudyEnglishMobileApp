@@ -1,13 +1,16 @@
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
 
-export default function ReviewLayout() {
+export default function ExploreLayout() {
   return (
     <Stack
       screenOptions={{
         headerShown: false,
       }}
     >
-      {/* Stack sẽ tự inject route tương ứng vào đây */}
+      <Stack.Screen name="index" />
+      <Stack.Screen name="TopicListScreen" />
+      <Stack.Screen name="WordCard" />
+      <Stack.Screen name="WordListScreen" />
     </Stack>
   );
 }

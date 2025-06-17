@@ -91,5 +91,44 @@ namespace StudyEnglishMobileAppAPIs.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("CheckAllTopicsCompletedInLevel")]
+        public async Task<IActionResult> CheckAllTopicsCompletedInLevel(int userId, int levelId)
+        {
+            // Get all topic IDs in the given level
+            var topicsInLevel = await _context.Topics
+                .Where(t => t.LevelId == levelId)
+                .ToListAsync();
+
+            if (topicsInLevel == null || !topicsInLevel.Any())
+                return NotFound("No topics found for this level.");
+
+            // Get completed topics of the user
+            var completedUserTopics = await _context.UserTopic
+                .Where(ut => ut.UserId == userId && ut.Status == "Completed")
+                .Include(ut => ut.Topic)
+                .ToListAsync();
+
+            var completedTopicsInLevel = completedUserTopics
+                .Where(ut => ut.Topic.LevelId == levelId)
+                .Select(ut => ut.Topic.Id)
+                .ToList();
+
+            // Check if all topics in level are completed
+            bool allCompleted = topicsInLevel.All(t => completedTopicsInLevel.Contains(t.Id));
+
+            if (allCompleted)
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                if (user != null && user.CurrentLevel <= levelId)
+                {
+                    user.CurrentLevel = levelId + 1;
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            return Ok(new { allCompleted });
+        }
+
     }
 }

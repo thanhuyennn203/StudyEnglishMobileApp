@@ -1,15 +1,14 @@
+import { useRouter } from "expo-router";
 import * as React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
-  Text,
-  TextInput,
+  Appbar,
   Button,
   HelperText,
-  Appbar,
+  Text,
+  TextInput,
 } from "react-native-paper";
-import { useRouter } from "expo-router";
-
-const API_URL = "http://localhost:5130/api/auth";
+import { API_URL } from "../../GetIp";
 
 export default function SignupScreen() {
   const router = useRouter();
@@ -31,7 +30,7 @@ export default function SignupScreen() {
     }
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/register`, {
+      const res = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -41,7 +40,7 @@ export default function SignupScreen() {
       router.replace("/(auth)/login" as any);
     } catch (e) {
       setLoading(false);
-      setError("Registration failed");
+      setError("Registration failed! Your email already existed!");
     }
   };
 
@@ -53,7 +52,10 @@ export default function SignupScreen() {
       </Appbar.Header>
 
       <View style={styles.form}>
-        <Text variant="headlineMedium" style={{ marginBottom: 24 }}>
+        <Text
+          variant="headlineMedium"
+          style={{ marginBottom: 24, textAlign: "center" }}
+        >
           Create Account
         </Text>
         <TextInput
@@ -107,7 +109,6 @@ const styles = StyleSheet.create({
   },
   form: {
     flex: 1,
-    justifyContent: "center",
     padding: 24,
   },
 });

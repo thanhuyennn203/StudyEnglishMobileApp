@@ -17,11 +17,14 @@ import {
 } from "react-native-paper";
 import { useRouter } from "expo-router";
 import CustomText from "@/components/CustomText";
+import { useAuth } from "../../../hooks/useAuth";
 
 export default function GameScreen() {
   const router = useRouter();
   const [visible, setVisible] = useState(false);
-
+  const { user } = useAuth();
+  const userId = user?.id;
+  // console.log(userId);
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
 
@@ -60,7 +63,7 @@ export default function GameScreen() {
               style={{ width: 120, height: 120, marginBottom: 15 }}
             />
             <CustomText style={{ fontSize: 20, textAlign: "center" }}>
-              Game is not available now. May be back tomorrow!
+              Game is not available now. Login and complete all test to play!
             </CustomText>
           </View>
         </Modal>
@@ -96,7 +99,20 @@ export default function GameScreen() {
         <CustomText style={styles.subTitle}>You May Also Like</CustomText>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {images.map((imgSrc, index) => (
-            <TouchableOpacity key={index} onPress={showModal}>
+            <TouchableOpacity
+              key={index}
+              onPress={() => {
+                if (index === 0) {
+                  if (userId) {
+                    router.push("/VocabFlashGame");
+                  } else {
+                    showModal();
+                  }
+                } else {
+                  showModal();
+                }
+              }}
+            >
               <Avatar.Image size={100} source={imgSrc} style={styles.avatar} />
             </TouchableOpacity>
           ))}

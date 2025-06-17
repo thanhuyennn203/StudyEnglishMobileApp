@@ -1,21 +1,22 @@
+import * as ImagePicker from "expo-image-picker";
+import { useRouter } from "expo-router";
 import * as React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import {
-  Text,
-  TextInput,
-  Button,
   Avatar,
+  Button,
   Chip,
   Snackbar,
+  Text,
+  TextInput,
 } from "react-native-paper";
-import { useRouter } from "expo-router";
 import { useAuth } from "../../../hooks/useAuth";
-import * as ImagePicker from "expo-image-picker";
+import { API_URL } from "../../../GetIp";
 
 export default function EditProfileScreen() {
   const router = useRouter();
   const { user, tokens, setUser } = useAuth();
-  const API_URL = "http://localhost:5130/api/auth";
+  const url = API_URL + "/auth";
 
   const [displayName, setDisplayName] = React.useState(user?.displayName || "");
   const [avatarUrl, setAvatarUrl] = React.useState(user?.avatarUrl || "");
@@ -52,7 +53,7 @@ export default function EditProfileScreen() {
     setIsSaving(true);
     try {
       // Update profile fields
-      const res = await fetch(`${API_URL}/update-profile`, {
+      const res = await fetch(`${url}/update-profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +71,7 @@ export default function EditProfileScreen() {
       setUser((prev) => ({ ...prev, ...updatedUser }));
       // Optionally update password
       if (showPasswordFields && password && oldPassword) {
-        const passRes = await fetch(`${API_URL}/change-password`, {
+        const passRes = await fetch(`${url}/change-password`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

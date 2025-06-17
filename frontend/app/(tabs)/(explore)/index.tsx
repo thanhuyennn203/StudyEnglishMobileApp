@@ -1,15 +1,19 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  FlatList,
   ActivityIndicator,
+  FlatList,
   Image,
-  TouchableOpacity,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { API_URL } from "../../../GetIp";
+import { useAuth } from "@/hooks/useAuth";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 const getTopicIcon = (title) => {
   title = title.toLowerCase();
@@ -21,40 +25,54 @@ const getTopicIcon = (title) => {
 };
 
 export default function ExploreScreen() {
+  const { user } = useAuth();
   const { levelId } = useLocalSearchParams();
+  let actualLevelId = user?.currentLevel;
   const router = useRouter();
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5130/api";
+  // console.log(actualLevelId);
+  useFocusEffect(
+    useCallback(() => {
+      const fetchTopics = async () => {
+        setLoading(true);
+        try {
+          let url = `${API_URL}/Topic`;
 
-  useEffect(() => {
-    const fetchTopics = async () => {
-      setLoading(true);
-      try {
-        const url = levelId
-          ? `${API_URL}/Topic?levelId=${levelId}`
-          : `${API_URL}/Topic`;
-        const res = await fetch(url);
-        const data = await res.json();
-        setTopics(data);
-      } catch (err) {
-        console.error("Error fetching topics:", err);
-        setTopics([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+          if (levelId) {
+            url = `${API_URL}/Topic?levelId=${levelId}`;
+          } else if (actualLevelId) {
+            url = `${API_URL}/Topic?levelId=${actualLevelId}`;
+          }
 
-    fetchTopics();
-  }, [levelId]);
+          const res = await fetch(url);
+          const data = await res.json();
+          setTopics(data);
+        } catch (err) {
+          console.error("Error fetching topics:", err);
+          setTopics([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchTopics();
+    }, [actualLevelId, user])
+  );
 
   const renderItem = ({ item }) => {
     const icon = getTopicIcon(item.title);
+    // console.log(item.id);
     return (
       <TouchableOpacity
         style={styles.card}
-        onPress={() => router.push(`/WordListScreen?topicId=${item.id}`)}
+        onPress={() =>
+          router.push({
+            pathname: "/WordListScreen",
+            params: { topicId: item.id, topicName: item.title },
+          })
+        }
       >
         <Image source={{ uri: icon }} style={styles.icon} />
         <View style={{ flex: 1 }}>
@@ -69,7 +87,7 @@ export default function ExploreScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>
-        {levelId ? ` Topics for Level ${levelId}` : " Explore All Topics"}
+        {levelId ? ` Topics for Level ${levelId}` : "Topics For Your Level"}
       </Text>
       {loading ? (
         <ActivityIndicator size="large" color="#FF6F61" />

@@ -17,10 +17,9 @@ export default function ProfileScreen() {
   const router = useRouter();
   const { user, loading, logout } = useAuth();
 
-  const avatarUrl =
-    user?.avatarUrl ||
-    "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+  const avatarUrl = user?.avatarUrl || "@/assets/images/avatar.jpg";
 
+  // console.log(avatarUrl);
   const barData = [
     { value: 5, label: "6/1" },
     { value: 2, label: "6/2" },
@@ -121,6 +120,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#F9FAFB",
+    paddingBottom: 30,
   },
   centered: {
     flex: 1,

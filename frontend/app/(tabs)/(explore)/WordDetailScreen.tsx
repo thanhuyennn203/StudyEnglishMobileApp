@@ -8,29 +8,55 @@ import {
   ActivityIndicator,
   ScrollView,
 } from "react-native";
+import { Animated, Pressable } from "react-native";
+import { Appbar, Modal, Portal, ProgressBar } from "react-native-paper";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import * as Speech from "expo-speech";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { API_URL } from "@/GetIp";
+import { useAuth } from "../../../hooks/useAuth";
+import CustomText from "@/components/CustomText";
+import { flashcardImages } from "../../../flashcardImages";
 
-const DEFAULT_IMAGE_URL =
-  "https://cdn-icons-png.flaticon.com/512/190/190411.png";
+const DEFAULT_IMAGE_URL = require("@/assets/images/flashcards/default.jpg");
 
 export default function WordDetailScreen() {
-  const { word, image } = useLocalSearchParams();
+  const { word, status, wordId, topicId } = useLocalSearchParams();
   const router = useRouter();
+  const { user } = useAuth();
+  const userId = user?.id;
 
-  const [learned, setLearned] = useState(false);
+  const [learned, setLearned] = useState(status === "true");
+  const [learnCount, setLearnCount] = useState(status === "true" ? 10 : 0);
   const [loading, setLoading] = useState(true);
   const [definitionData, setDefinitionData] = useState(null);
   const [error, setError] = useState(null);
+  const [image, setImage] = useState(DEFAULT_IMAGE_URL);
+  const [visible, setVisible] = useState(false);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+
+  const containerStyle = {
+    backgroundColor: "white",
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+    margin: 20,
+    borderRadius: 10,
+  };
 
   useEffect(() => {
-    checkLearned();
     fetchDefinition();
+    fetchImage();
   }, []);
+
+  const fetchImage = async () => {
+    const key = word.toLowerCase();
+    const image = flashcardImages[key];
+    if (image) {
+      setImage(image);
+    }
+  };
 
   const fetchDefinition = async () => {
     try {
@@ -39,7 +65,6 @@ export default function WordDetailScreen() {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       const data = await response.json();
-
       if (Array.isArray(data)) {
         setDefinitionData(data[0]);
         setError(null);
@@ -53,23 +78,94 @@ export default function WordDetailScreen() {
     }
   };
 
-  const checkLearned = async () => {
-    const stored = await AsyncStorage.getItem("learnedWords");
-    if (stored) {
-      const list = JSON.parse(stored);
-      if (list.includes(word)) setLearned(true);
+  const markAsLearned = () => {
+    if (!user) {
+      showModal();
+      return;
+    }
+
+    if (learnCount >= 10) {
+      Alert.alert("You've already mastered this word!");
+      return;
+    }
+
+    playSound();
+    const newCount = learnCount + 1;
+    setLearnCount(newCount);
+
+    if (newCount === 10) {
+      setLearned(true);
+      markAsLearnedOnServer();
     }
   };
 
-  const markAsLearned = async () => {
-    const stored = await AsyncStorage.getItem("learnedWords");
-    let list = stored ? JSON.parse(stored) : [];
+  const markAsLearnedOnServer = async () => {
+    const url = API_URL + "/Words/learned";
+    try {
+      if (!userId || !wordId) return;
 
-    if (!list.includes(word)) {
-      list.push(word);
-      await AsyncStorage.setItem("learnedWords", JSON.stringify(list));
-      setLearned(true);
-      Alert.alert("Marked as finished!");
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          param_1: parseInt(userId),
+          param_2: parseInt(wordId),
+        }),
+      });
+
+      if (!response.ok) {
+        console.error("Failed to mark word as learned.");
+      } else {
+        await checkIfTopicCompleted();
+      }
+    } catch (err) {
+      console.error("API error:", err);
+    }
+  };
+
+  const checkIfTopicCompleted = async () => {
+    try {
+      if (!userId || !topicId) return;
+
+      const response = await fetch(
+        `${API_URL}/Topic/check-complete?userId=${userId}&topicId=${topicId}`
+      );
+      const result = await response.json();
+
+      if (result.isCompleted) {
+        Alert.alert(
+          "Topic Completed!",
+          "You've learned all the words in this topic!"
+        );
+        await checkIfLevelCompleted();
+      }
+    } catch (err) {
+      console.error("Error checking topic completion:", err);
+    }
+  };
+
+  const checkIfLevelCompleted = async () => {
+    const levelId = user?.currentLevel;
+    // console.log(levelId);
+    try {
+      if (!userId || !topicId) return;
+
+      const response = await fetch(
+        `${API_URL}/Level/CheckAllTopicsCompletedInLevel?userId=${userId}&levelId=${levelId}`
+      );
+      const result = await response.json();
+      // console.log("result: ", result);
+      if (!result.allCompleted) {
+        Alert.alert(
+          "Level Completed!",
+          "Congratulations! You've completed this level. Moving to the next level."
+        );
+        user.currentLevel = user.currentLevel + 1;
+      }
+    } catch (err) {
+      console.error("Error checking level completion:", err);
     }
   };
 
@@ -77,35 +173,79 @@ export default function WordDetailScreen() {
     if (word) Speech.speak(word);
   };
 
+  const scaleAnim = useState(new Animated.Value(1))[0];
+
+  const onPressIn = () => {
+    Animated.spring(scaleAnim, {
+      toValue: 0.6,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const onPressOut = () => {
+    Animated.spring(scaleAnim, {
+      toValue: 1,
+      friction: 3,
+      tension: 40,
+      useNativeDriver: true,
+    }).start();
+  };
+
   const renderDefinitions = () => {
-    if (!definitionData?.meanings) return null;
-    return definitionData.meanings.map((meaning, idx) => (
-      <View key={idx} style={styles.definitionBlock}>
-        <Text style={styles.partOfSpeech}>{meaning.partOfSpeech}</Text>
-        {meaning.definitions.map((def, i) => (
+    if (!definitionData?.meanings?.length) return null;
+    const firstMeaning = definitionData.meanings[0];
+
+    return (
+      <ScrollView
+        showsVerticalScrollIndicator={true}
+        style={styles.definitionBlock}
+      >
+        <Text style={styles.partOfSpeech}>{firstMeaning.partOfSpeech}</Text>
+        {firstMeaning.definitions.map((def, i) => (
           <Text key={i} style={styles.definition}>
             • {def.definition}
           </Text>
         ))}
-      </View>
-    ));
+      </ScrollView>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => router.back()}
-        >
-          <Ionicons name="arrow-back" size={24} color="#444" />
-        </TouchableOpacity>
-      </SafeAreaView>
+      <Appbar.Header mode="small">
+        <Appbar.BackAction onPress={() => router.back()} />
+      </Appbar.Header>
 
-      <Image
-        source={{ uri: image || DEFAULT_IMAGE_URL }}
-        style={styles.image}
-      />
+      <Portal>
+        <Modal
+          visible={visible}
+          onDismiss={hideModal}
+          contentContainerStyle={containerStyle}
+        >
+          <View style={{ alignItems: "center" }}>
+            <Image
+              source={require("@/assets/images/notavailable.jpg")}
+              style={{ width: 120, height: 120, marginBottom: 15 }}
+            />
+            <CustomText style={{ fontSize: 20, textAlign: "center" }}>
+              Let's login to save your study!
+            </CustomText>
+          </View>
+        </Modal>
+      </Portal>
+
+      <View style={{ marginVertical: 16 }}>
+        <Text style={{ textAlign: "center", marginBottom: 4 }}>
+          Progress: {Math.min(learnCount, 10)} / 10
+        </Text>
+        <ProgressBar
+          progress={Math.min(learnCount / 10, 1)}
+          color="#FF6F61"
+          style={{ height: 12, borderRadius: 10 }}
+        />
+      </View>
+
+      <Image source={image} style={styles.image} />
 
       <View style={styles.wordRow}>
         <Text style={styles.word}>{word}</Text>
@@ -114,7 +254,7 @@ export default function WordDetailScreen() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         {loading ? (
           <ActivityIndicator size="large" color="#FF6F61" />
         ) : error ? (
@@ -132,33 +272,40 @@ export default function WordDetailScreen() {
         )}
       </ScrollView>
 
-      <TouchableOpacity
-        style={[styles.learnedBtn, learned && styles.learnedBtnActive]}
-        onPress={markAsLearned}
-        disabled={learned}
-      >
-        <Text style={styles.learnedBtnText}>
-          {learned ? "Finished" : "Mark as finished"}
-        </Text>
-      </TouchableOpacity>
+      <View style={styles.fabWrapper}>
+        <Animated.View
+          style={[styles.fab, { transform: [{ scale: scaleAnim }] }]}
+        >
+          <Pressable
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
+            onPress={markAsLearned}
+            style={({ pressed }) => [
+              {
+                width: "100%",
+                height: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 40,
+              },
+              pressed && { opacity: 0.8 },
+            ]}
+          >
+            <MaterialIcons name="check-circle" size={40} color="#fff" />
+          </Pressable>
+        </Animated.View>
+        <Text style={styles.countText}>{learnCount}</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: "#FFF7EF" },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
+  container: {
+    flex: 1,
     paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
     backgroundColor: "#FFF7EF",
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    paddingBottom: 30,
   },
   image: {
     width: "100%",
@@ -172,14 +319,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 20,
+    marginVertical: 15,
   },
   word: { fontSize: 32, fontWeight: "bold", color: "#333" },
   pronunciation: {
     fontSize: 18,
     color: "#888",
     textAlign: "center",
-    marginBottom: 10,
   },
   soundButton: {
     marginLeft: 12,
@@ -203,6 +349,9 @@ const styles = StyleSheet.create({
   definitionBlock: {
     marginBottom: 15,
     paddingHorizontal: 10,
+    height: 180,
+    backgroundColor: "white",
+    borderRadius: 10,
   },
   definition: {
     fontSize: 16,
@@ -215,20 +364,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 20,
   },
-  learnedBtn: {
+  fabWrapper: {
+    position: "relative",
+    alignItems: "center",
+  },
+  fab: {
+    position: "absolute",
+    bottom: 100,
     backgroundColor: "#FF6F61",
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 20,
-    alignSelf: "center",
-    marginVertical: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5,
   },
-  learnedBtnActive: {
-    backgroundColor: "#4CAF50",
-  },
-  learnedBtnText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 16,
+  countText: {
+    marginTop: 20,
+    fontSize: 18,
+    color: "#FF6F61",
   },
 });

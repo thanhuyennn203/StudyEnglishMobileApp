@@ -1,7 +1,8 @@
 import CustomText from "@/components/CustomText";
 import { Baloo2_600SemiBold, useFonts } from "@expo-google-fonts/baloo-2";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Audio } from "expo-av";
+// import { Audio } from "expo-av";
+import * as Speech from "expo-speech";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import {
@@ -10,24 +11,45 @@ import {
   Pressable,
   StyleSheet,
   View,
+  ScrollView,
+  Image,
 } from "react-native";
-import { Button, Card, ProgressBar, MD3Colors } from "react-native-paper";
+import {
+  Button,
+  Card,
+  ProgressBar,
+  MD3Colors,
+  Appbar,
+} from "react-native-paper";
 import ModalNotification from "@/components/ModalNotification";
-
-const { width } = Dimensions.get("window");
+import { API_URL } from "../../../GetIp";
+import { flashcardImages } from "../../../flashcardImages";
 
 export default function FlashCardScreen() {
   const router = useRouter();
   const [flipped, setFlipped] = useState(false);
   const flipAnim = useRef(new Animated.Value(0)).current;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [sound, setSound] = useState(null);
   const [word, setWord] = useState([]);
   const { topicId, topicName } = useLocalSearchParams();
   const [isComplete, setIsComplete] = useState(false);
+  const DEFAULT_IMAGE_URL = require("@/assets/images/flashcards/default.jpg");
+  const [image, setImage] = useState(DEFAULT_IMAGE_URL);
+
+  const fetchImage = async (spelling) => {
+    const key = spelling.toLowerCase();
+    const image = flashcardImages[key];
+    if (image) {
+      setImage(image);
+    }
+  };
+
+  const playSound = (word) => {
+    if (word) Speech.speak(word);
+  };
 
   useEffect(() => {
-    const url = `http://localhost:5130/api/Words/by-topic/${topicId}`;
+    const url = API_URL + `/Words/by-topic/${topicId}`;
     fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error("Network error");
@@ -37,17 +59,11 @@ export default function FlashCardScreen() {
       .catch((err) => console.error("Fetch error:", err));
   }, []);
 
-  const playSound = async () => {
-    try {
-      const { sound } = await Audio.Sound.createAsync({
-        uri: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      });
-      setSound(sound);
-      await sound.playAsync();
-    } catch (e) {
-      console.warn("Failed to load sound", e);
+  useEffect(() => {
+    if (word.length > 0 && word[currentIndex]?.spelling) {
+      fetchImage(word[currentIndex].spelling);
     }
-  };
+  }, [word, currentIndex]);
 
   const [fontsLoaded] = useFonts({ Baloo2_600SemiBold });
   if (!fontsLoaded) return null;
@@ -94,31 +110,16 @@ export default function FlashCardScreen() {
       : { spelling: "", ipa: "", defination: "" };
 
   return (
-    <View style={styles.container}>
-      <MaterialCommunityIcons
-        name="chevron-double-left"
-        style={styles.backBtn}
-        onPress={() => router.back()}
-        size={36}
-        color="#4A90E2"
-      />
-      <CustomText style={styles.header}>{topicName}</CustomText>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <Appbar.Header mode="center-aligned">
+        <Appbar.BackAction onPress={() => router.back()} />
+        <Appbar.Content title={topicName} />
+      </Appbar.Header>
       <ProgressBar
         progress={word.length > 0 ? (currentIndex + 1) / word.length : 0}
         color={MD3Colors.primary40}
         style={styles.progressBar}
       />
-      <CustomText
-        style={{ textAlign: "center", color: "#4e6b78", paddingHorizontal: 10 }}
-      >
-        <MaterialCommunityIcons
-          name="lightbulb-on-outline"
-          size={30}
-          color="#FF6F00"
-        />
-        Note: Flip card to see word and press the speaker button to hear the
-        pronunciation
-      </CustomText>
       {word.length === 0 ? (
         <CustomText style={{ textAlign: "center", marginTop: 40 }}>
           Loading words...
@@ -137,10 +138,12 @@ export default function FlashCardScreen() {
                 ]}
               >
                 <Card style={styles.innerCard}>
-                  <Card.Cover
+                  <Image source={image} style={styles.image} />
+
+                  {/* <Card.Cover
                     style={styles.image}
                     source={{ uri: "https://picsum.photos/300" }}
-                  />
+                  /> */}
                 </Card>
               </Animated.View>
 
@@ -158,10 +161,10 @@ export default function FlashCardScreen() {
                     <CustomText style={styles.cardText}>
                       {item.spelling}
                     </CustomText>
-                    <CustomText style={styles.apiText}>/{item.ipa}/</CustomText>
-                    <CustomText style={styles.apiText}>
-                      /{item.defination}/
-                    </CustomText>
+                    {/* <CustomText style={styles.apiText}>/{item.ipa}/</CustomText> */}
+                    {/* <CustomText style={styles.apiText}>
+                      {item.defination}
+                    </CustomText> */}
                   </Card.Content>
                 </Card>
               </Animated.View>
@@ -171,7 +174,7 @@ export default function FlashCardScreen() {
           <MaterialCommunityIcons
             name="volume-high"
             size={40}
-            onPress={playSound}
+            onPress={() => playSound(item.spelling)}
             style={{ alignSelf: "center", marginTop: 20 }}
           />
 
@@ -203,7 +206,7 @@ export default function FlashCardScreen() {
         message="🎉 You've completed all the words!"
         imageSource={require("@/assets/images/ads.jpg")}
       />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -211,8 +214,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 40,
-    paddingBottom: 60,
+    // paddingTop: 40,
+    paddingBottom: 30,
     backgroundColor: "#F9F9F9",
   },
   header: {
@@ -254,7 +257,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardContent: { flex: 1, justifyContent: "center", alignItems: "center" },
-  cardText: { fontSize: 30, color: "#2F4F4F", textAlign: "center" },
+  cardText: { fontSize: 36, color: "#2F4F4F", textAlign: "center" },
   apiText: { fontSize: 16, color: "#2F4F4F" },
   image: { width: "100%", height: "100%", resizeMode: "cover" },
   buttonRow: {

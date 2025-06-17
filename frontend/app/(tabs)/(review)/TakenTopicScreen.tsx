@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { Button, Card } from "react-native-paper";
 import { useAuth } from "../../../hooks/useAuth";
+import { API_URL } from "../../../GetIp";
+import { useFocusEffect } from "expo-router";
 
 const cardColors = ["#A55FEF", "#3AAFFF", "#FD8916", "#45C4B0", "#FCCA38"];
 
@@ -19,29 +21,33 @@ const TakenTopicsScreen = () => {
   const [topics, setTopics] = useState(null);
   const { user } = useAuth();
   const userId = user?.id;
+  // console.log("userId: ", user);
 
   // Fetch topics
-  useEffect(() => {
-    if (!userId) return;
-
-    const url = "http://localhost:5130/api/Topic/CompletedByUser/" + userId;
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) throw new Error("Network error");
-        return response.json();
-      })
-      .then((data) => {
-        if (!data || data.length === 0) {
+  useFocusEffect(
+    React.useCallback(() => {
+      if (!userId) return;
+      const fetchTopics = async () => {
+        try {
+          const response = await fetch(
+            API_URL + "/Topic/CompletedByUser/" + userId
+          );
+          if (response.status === 204) {
+            setTopics(null);
+            return;
+          }
+          const data = await response.json();
+          // console.log(data);
+          setTopics(data?.length ? data : null);
+        } catch (err) {
+          console.error("Fetch error:", err);
           setTopics(null);
-        } else {
-          setTopics(data);
         }
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err);
-        setTopics(null);
-      });
-  }, [userId]);
+      };
+
+      fetchTopics();
+    }, [userId])
+  );
 
   // Assign colors
   const coloredTopics = useMemo(() => {

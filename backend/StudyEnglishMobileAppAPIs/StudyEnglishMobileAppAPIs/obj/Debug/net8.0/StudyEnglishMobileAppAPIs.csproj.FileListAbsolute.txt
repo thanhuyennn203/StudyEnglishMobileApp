@@ -1,11 +1,3 @@
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.csproj.AssemblyReference.cache
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.GeneratedMSBuildEditorConfig.editorconfig
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.AssemblyInfoInputs.cache
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.AssemblyInfo.cs
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.csproj.CoreCompileInputs.cache
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.MvcApplicationPartsAssemblyInfo.cs
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.MvcApplicationPartsAssemblyInfo.cache
-F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.sourcelink.json
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\appsettings.Development.json
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\appsettings.json
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\StudyEnglishMobileAppAPIs.staticwebassets.endpoints.json
@@ -74,6 +66,14 @@ F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.csproj.AssemblyReference.cache
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.GeneratedMSBuildEditorConfig.editorconfig
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.AssemblyInfoInputs.cache
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.AssemblyInfo.cs
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.csproj.CoreCompileInputs.cache
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.MvcApplicationPartsAssemblyInfo.cs
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.MvcApplicationPartsAssemblyInfo.cache
+F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\StudyEnglishMobileAppAPIs.sourcelink.json
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\scopedcss\bundle\StudyEnglishMobileAppAPIs.styles.css
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\staticwebassets.build.json
 F:\CSE441\ProjectMobile\StudyEnglishMobileApp\backend\StudyEnglishMobileAppAPIs\StudyEnglishMobileAppAPIs\obj\Debug\net8.0\staticwebassets.development.json

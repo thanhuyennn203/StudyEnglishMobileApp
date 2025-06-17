@@ -25,7 +25,23 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "LoginModel",
+        "Type": "AuthController\u002BLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AuthController\u002BRefreshRequest",
         "IsRequired": true
       }
     ],
@@ -41,7 +57,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "RefreshRequest",
+        "Type": "AuthController\u002BRefreshRequest",
         "IsRequired": true
       }
     ],
@@ -57,7 +73,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "RegisterModel",
+        "Type": "AuthController\u002BRegisterModel",
         "IsRequired": true
       }
     ],
@@ -73,7 +89,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "UpdateProfileModel",
+        "Type": "AuthController\u002BUpdateProfileModel",
         "IsRequired": true
       }
     ],
@@ -189,6 +205,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.LevelController",
+    "Method": "CheckAllTopicsCompletedInLevel",
+    "RelativePath": "api/Level/CheckAllTopicsCompletedInLevel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "levelId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
     "Method": "GetTopics",
     "RelativePath": "api/Topic",
@@ -216,15 +253,15 @@
   },
   {
     "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
-    "Method": "PostTopic",
+    "Method": "Topic",
     "RelativePath": "api/Topic",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "topic",
-        "Type": "StudyEnglishMobileAppAPIs.Models.Topic",
+        "Name": "newTopic",
+        "Type": "NewTopic",
         "IsRequired": true
       }
     ],
@@ -268,6 +305,22 @@
   },
   {
     "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
+    "Method": "DeleteTopic",
+    "RelativePath": "api/Topic/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
     "Method": "PutTopic",
     "RelativePath": "api/Topic/{id}",
     "HttpMethod": "PUT",
@@ -280,8 +333,8 @@
         "IsRequired": true
       },
       {
-        "Name": "topic",
-        "Type": "StudyEnglishMobileAppAPIs.Models.Topic",
+        "Name": "edittopic",
+        "Type": "EditTopic",
         "IsRequired": true
       }
     ],
@@ -289,16 +342,41 @@
   },
   {
     "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
-    "Method": "DeleteTopic",
-    "RelativePath": "api/Topic/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "GetTopics",
+    "RelativePath": "api/Topic/all-topics",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[StudyEnglishMobileAppAPIs.Models.Topic, StudyEnglishMobileAppAPIs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.TopicController",
+    "Method": "CheckTopicCompleted",
+    "RelativePath": "api/Topic/check-complete",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "userId",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "topicId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -358,8 +436,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "word",
-        "Type": "StudyEnglishMobileAppAPIs.Models.Word",
+        "Name": "dto",
+        "Type": "WordsController\u002BCreateWordDto",
         "IsRequired": true
       }
     ],
@@ -415,8 +493,8 @@
         "IsRequired": true
       },
       {
-        "Name": "word",
-        "Type": "StudyEnglishMobileAppAPIs.Models.Word",
+        "Name": "dto",
+        "Type": "WordsController\u002BUpdateWordDto",
         "IsRequired": true
       }
     ],
@@ -466,6 +544,37 @@
   },
   {
     "ContainingType": "WordsController",
+    "Method": "GetWordLearnedByUser",
+    "RelativePath": "api/Words/by-topic-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "topicId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WordsController",
     "Method": "GetWordsByTopicId",
     "RelativePath": "api/Words/by-topic/{topicId}",
     "HttpMethod": "GET",
@@ -489,6 +598,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "WordsController",
+    "Method": "MarkWordAsLearned",
+    "RelativePath": "api/Words/learned",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "StudyEnglishMobileAppAPIs.Models.PostDataDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "StudyEnglishMobileAppAPIs.Controllers.WeatherForecastController",

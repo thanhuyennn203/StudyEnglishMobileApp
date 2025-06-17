@@ -12,21 +12,35 @@ import { useAuth } from "../../hooks/useAuth";
 
 export default function LoginScreen() {
   const router = useRouter();
-  const { login, loading } = useAuth();
+  const { login, loading, user } = useAuth();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
 
   const onLogin = async () => {
     setError("");
+
+    if (!email.trim() || !password.trim()) {
+      setError("Email and password are required.");
+      return;
+    }
+
     const success = await login(email, password);
-    if (success) {
-      router.replace("/(tabs)/(profile)");
-    } else {
-      console.log(success);
-      setError("Invalid email or password");
+
+    if (!success) {
+      setError("Invalid email or password.");
     }
   };
+
+  React.useEffect(() => {
+    if (user) {
+      if (user?.role === "Admin") {
+        router.replace("/(admin)");
+      } else {
+        router.replace("/(tabs)/(profile)");
+      }
+    }
+  }, [user]);
 
   return (
     <View style={{ flex: 1 }}>
@@ -38,7 +52,10 @@ export default function LoginScreen() {
       </Appbar.Header>
 
       <ScrollView contentContainerStyle={styles.container}>
-        <Text variant="headlineMedium" style={{ marginBottom: 24 }}>
+        <Text
+          variant="headlineMedium"
+          style={{ marginBottom: 24, textAlign: "center" }}
+        >
           Log In
         </Text>
         <TextInput
@@ -80,7 +97,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     padding: 24,
     backgroundColor: "#fff",
   },

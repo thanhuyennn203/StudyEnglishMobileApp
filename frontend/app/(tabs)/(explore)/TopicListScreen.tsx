@@ -6,59 +6,53 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Animated, { FadeInRight } from "react-native-reanimated";
 import { useAuth } from "../../../hooks/useAuth";
+import { API_URL } from "../../../GetIp";
+import { useFocusEffect } from "@react-navigation/native";
 
 export default function TopicListScreen() {
   const router = useRouter();
   const { user } = useAuth();
+  const params = useLocalSearchParams();
+
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const defaultLevelId = 1;
+  const paramLevelId = params.levelId ? Number(params.levelId) : null;
+  const actualLevelId = paramLevelId || user?.currentLevel || defaultLevelId;
+  // console.log(actualLevelId);
 
-  const levelId = user?.CurrentLevel || defaultLevelId;
-  console.log(levelId);
-  useEffect(() => {
-    // Avoid running the fetch if user is expected but not loaded yet
-    if (
-      user === undefined ||
-      (user !== null && user.CurrentLevel === undefined)
-    )
-      return;
+  useFocusEffect(
+    useCallback(() => {
+      if (
+        user === undefined ||
+        (user !== null && user.currentLevel === undefined && !paramLevelId)
+      )
+        return;
 
-    const actualLevelId = user?.CurrentLevel || defaultLevelId;
-    const API_URL = `http://10.60.1.208:5130/api/Topic?levelId=${actualLevelId}`;
+      const url = API_URL + `/Topic?levelId=${actualLevelId}`;
+      setLoading(true);
 
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch topics");
-        return res.json();
-      })
-      .then((data) => {
-        setTopics(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err);
-        setLoading(false);
-      });
-  }, [user]);
-
-  useEffect(() => {
-    const API_URL = `http://localhost:5130/api/Topic?levelId=${levelId}`;
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setTopics(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, [levelId]);
+      // console.log(url);
+      fetch(url)
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch topics");
+          return res.json();
+        })
+        .then((data) => {
+          setTopics(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Fetch error:", err);
+          setLoading(false);
+        });
+    }, [user])
+  );
+  console.log(topics);
 
   return (
     <ScrollView
@@ -78,7 +72,7 @@ export default function TopicListScreen() {
           color: "#FF6F61",
         }}
       >
-        🎨 Pick a Fun Topic!
+        🎨 Topics - Level {actualLevelId}
       </Text>
 
       {loading ? (
@@ -93,8 +87,8 @@ export default function TopicListScreen() {
             <Pressable
               onPress={() =>
                 router.push({
-                  pathname: "/(tabs)/(explore)/WordListScreen",
-                  params: { topicId: topic.id },
+                  pathname: "/WordListScreen",
+                  params: { topicId: topic.id, topicName: topic.title },
                 })
               }
               style={{

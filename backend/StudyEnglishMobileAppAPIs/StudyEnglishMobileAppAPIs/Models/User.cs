@@ -12,6 +12,8 @@ namespace StudyEnglishMobileAppAPIs.Models
         public int CurrentLevel { get; set; }
 
         public Level Level { get; set; }
+        public string IdentityUserId { get; set; } // FK to ApplicationUser.Id
+        public ApplicationUser? IdentityUser { get; set; }
 
         public ICollection<WordLearning>? WordLearnings { get; set; }
         public ICollection<UserAnswer>? UserAnswers { get; set; }

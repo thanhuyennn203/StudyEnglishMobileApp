@@ -11,8 +11,8 @@ public class StudyEnglishMobileAppContext : DbContext
     public DbSet<Word> Words { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Topic> Topics { get; set; }
-    public DbSet<WordLearning> WordLearnings { get; set; }
-    public DbSet<WordLearningStatus> WordLearningStatuses { get; set; }
+    public DbSet<WordLearning> WordLearning { get; set; }
+    //public DbSet<WordLearningStatus> WordLearningStatus { get; set; }
     public DbSet<Exam> Exams { get; set; }
     public DbSet<Level> Levels { get; set; }
     public DbSet<LevelTestResult> LevelTestResults { get; set; }
@@ -50,18 +50,18 @@ public class StudyEnglishMobileAppContext : DbContext
 
         modelBuilder.Entity<WordLearning>()
             .HasOne(wl => wl.User)
-            .WithMany()
+            .WithMany(u=> u.WordLearnings)
             .HasForeignKey(wl => wl.UserId);
 
         modelBuilder.Entity<WordLearning>()
             .HasOne(wl => wl.Word)
-            .WithMany()
+            .WithMany(w=> w.WordLearnings)
             .HasForeignKey(wl => wl.WordId);
 
-        modelBuilder.Entity<WordLearning>()
-            .HasOne(wl => wl.WordLearningStatus)
-            .WithMany()
-            .HasForeignKey(wl => wl.Status);
+        //modelBuilder.Entity<WordLearning>()
+        //    .HasOne(wl => wl.WordLearningStatus)
+        //    .WithMany()
+        //    .HasForeignKey(wl => wl.Status);
 
         modelBuilder.Entity<Exam>()
             .HasOne(e => e.Level)
@@ -122,5 +122,11 @@ public class StudyEnglishMobileAppContext : DbContext
           .HasOne(ua => ua.Topic)
           .WithMany(u => u.UserTopics)
           .HasForeignKey(ua => ua.TopicId);
+
+        modelBuilder.Entity<User>()
+        .HasOne(u => u.IdentityUser)
+        .WithOne()
+        .HasForeignKey<User>(u => u.IdentityUserId)
+        .IsRequired();
     }
 }

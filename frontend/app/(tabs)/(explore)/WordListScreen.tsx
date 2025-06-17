@@ -1,45 +1,69 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  FlatList,
   ActivityIndicator,
+  FlatList,
   StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
+import {
+  Button,
+  Card,
+  ProgressBar,
+  MD3Colors,
+  Appbar,
+} from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import WordCard from "./WordCard";
-import { Ionicons } from "@expo/vector-icons";
+import { API_URL } from "../../../GetIp";
+import { useAuth } from "../../../hooks/useAuth";
+import { useFocusEffect } from "@react-navigation/native";
 
 export default function WordListScreen() {
-  const { topicId } = useLocalSearchParams();
+  const { topicId, topicName } = useLocalSearchParams();
+  // console.log(topicName);
+  const parsedTopicId =
+    typeof topicId === "string"
+      ? parseInt(topicId, 10)
+      : Array.isArray(topicId)
+      ? parseInt(topicId[0], 10)
+      : 0;
   const router = useRouter();
   const [words, setWords] = useState(null);
   const [loading, setLoading] = useState(true);
   const [timeoutReached, setTimeoutReached] = useState(false);
-
+  const { user } = useAuth();
+  const userId = user?.id;
+  // const userId = 1;
+  // console.log("user id", parsedTopicId);
   const fetchWords = useCallback(() => {
-    if (!topicId) return;
+    if (!parsedTopicId) return;
 
     setLoading(true);
     setTimeoutReached(false);
-
     let isMounted = true;
 
+    const controller = new AbortController();
     const timeout = setTimeout(() => {
-      if (isMounted && loading) {
-        setTimeoutReached(true);
-        setLoading(false);
-      }
+      controller.abort();
     }, 10000);
 
-    fetch(`http://localhost:5130/api/Words/by-topic/${topicId}`)
+    // console.log("user", user);
+    // If userId is not available, use the public endpoint
+    const url = userId
+      ? `${API_URL}/Words/by-topic-user?topicId=${parsedTopicId}&userId=${userId}`
+      : `${API_URL}/Words/by-topic/${parsedTopicId}`;
+
+    fetch(url, { signal: controller.signal })
       .then((res) => res.json())
       .then((data) => {
         if (isMounted) {
           if (Array.isArray(data) && data.length > 0) {
             setWords(data);
+            // console.log(data);
             setTimeoutReached(false);
           } else {
             setWords([]);
@@ -49,51 +73,65 @@ export default function WordListScreen() {
         }
       })
       .catch((err) => {
-        console.error("❌ Error fetching words:", err);
-        setTimeoutReached(true);
-        setLoading(false);
+        if (err.name === "AbortError") {
+          console.warn("Fetch aborted due to timeout");
+        } else {
+          console.error("Error fetching words:", err);
+        }
+        if (isMounted) {
+          setTimeoutReached(true);
+          setLoading(false);
+        }
       });
 
     return () => {
       isMounted = false;
       clearTimeout(timeout);
+      controller.abort();
     };
-  }, [topicId]);
+  }, [parsedTopicId, userId]);
 
-  useEffect(() => {
-    fetchWords();
-  }, [fetchWords]);
-
-  const renderItem = ({ item }) => (
-    <WordCard
-      word={item.spelling}
-      definition={item.definition}
-      audio={item.audioUrl}
-      onPress={() =>
-        router.push({
-          pathname: "/WordDetailScreen",
-          params: {
-            word: item.spelling,
-            image: item.imageUrl,
-            audio: item.audioUrl,
-            pronunciation: item.ipa,
-          },
-        })
-      }
-    />
+  useFocusEffect(
+    useCallback(() => {
+      fetchWords();
+    }, [fetchWords])
   );
+  // console.log("words: ", words);
+
+  const renderItem = ({ item }) => {
+    const word = userId ? item.word : item;
+    // console.log(item);
+    let learned = false;
+    if (userId && item.latestLearning?.status) {
+      learned = true;
+    }
+
+    // console.log("pass learned: ");
+    return (
+      <WordCard
+        word={word.spelling}
+        definition={word.definition}
+        learned={learned}
+        onPress={() =>
+          router.push({
+            pathname: "/WordDetailScreen",
+            params: {
+              word: word.spelling,
+              status: learned,
+              wordId: word.id,
+              topicId: word.topicId,
+            },
+          })
+        }
+      />
+    );
+  };
 
   const renderHeader = () => (
-    <SafeAreaView style={styles.headerContainer}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={styles.backButton}
-        >
-          <Ionicons name="arrow-back" size={24} color="#333" />
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    <Appbar.Header mode="center-aligned">
+      <Appbar.BackAction onPress={() => router.back()} />
+      <Appbar.Content title={topicName} />
+    </Appbar.Header>
   );
 
   if (loading) {
@@ -101,7 +139,7 @@ export default function WordListScreen() {
       <View style={styles.loadingContainer}>
         {renderHeader()}
         <ActivityIndicator size="large" color="#FF6F61" />
-        <Text style={styles.loadingText}>🪄 Loading your magic words...</Text>
+        <Text style={styles.loadingText}>Loading your magic words...</Text>
       </View>
     );
   }
@@ -109,9 +147,9 @@ export default function WordListScreen() {
   if (timeoutReached || (Array.isArray(words) && words.length === 0)) {
     return (
       <View style={styles.loadingContainer}>
-        {renderHeader()}
+        {/* {renderHeader()} */}
         <Text style={styles.timeoutText}>
-          ⏰ Oops! No words found for this topic. Please try again later.
+          Oops! No words found for this topic. Please try again later.
         </Text>
         <TouchableOpacity style={styles.retryButton} onPress={fetchWords}>
           <Text style={styles.retryText}>🔄 Try Again</Text>
@@ -125,7 +163,10 @@ export default function WordListScreen() {
       {renderHeader()}
       <FlatList
         data={words}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) =>
+          (item.word?.id || item.Word?.id)?.toString() ??
+          Math.random().toString()
+        }
         renderItem={renderItem}
         contentContainerStyle={styles.container}
       />
@@ -147,7 +188,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF7EF",
-    paddingHorizontal: 30,
+    // paddingHorizontal: 30,
   },
   loadingText: {
     marginTop: 16,
@@ -173,22 +214,5 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
-  },
-  headerContainer: {
-    backgroundColor: "#FFF7EF",
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
-    zIndex: 10,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: "#FFF7EF",
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
   },
 });

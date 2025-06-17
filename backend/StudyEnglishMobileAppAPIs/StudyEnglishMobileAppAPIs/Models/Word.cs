@@ -11,7 +11,7 @@
 
         public Topic Topic { get; set; }
 
-        public ICollection<WordLearning> WordLearnings { get; set; }
+        public ICollection<WordLearning>? WordLearnings { get; set; }
     }
 
 }

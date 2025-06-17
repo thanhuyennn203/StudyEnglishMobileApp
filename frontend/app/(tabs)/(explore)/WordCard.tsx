@@ -1,42 +1,41 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as Speech from "expo-speech";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
+import CustomText from "@/components/CustomText";
 
-export default function WordCard({ word, definition, onPress }) {
-  const [learned, setLearned] = useState(false);
-
-  useEffect(() => {
-    checkLearned();
-  }, []);
-
-  const checkLearned = async () => {
-    const stored = await AsyncStorage.getItem("learnedWords");
-    if (stored) {
-      const list = JSON.parse(stored);
-      if (list.includes(word)) setLearned(true);
-    }
-  };
-
+export default function WordCard({ word, definition, learned, onPress }) {
   const playSound = () => {
     Speech.speak(word);
   };
-
+  // console.log("learned: ", learned);
   return (
-    <Pressable onPress={onPress}>
-      <View style={[styles.card, learned && styles.cardLearned]}>
-        <View style={styles.info}>
-          <View style={styles.row}>
-            <Text style={styles.word}>{word}</Text>
-            <Pressable onPress={playSound}>
-              <Ionicons name="volume-high" size={20} color="#FF6F61" />
-            </Pressable>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <Pressable onPress={onPress}>
+        <View style={[styles.card, styles.cardNotLearned]}>
+          <View style={styles.info}>
+            <View style={styles.row}>
+              <CustomText style={styles.word}>
+                {word}{" "}
+                {learned && (
+                  <Ionicons
+                    name="checkmark-circle"
+                    size={20}
+                    color="#4CAF50"
+                    style={{ marginLeft: 8 }}
+                  />
+                )}
+              </CustomText>
+
+              <Pressable onPress={playSound}>
+                <Ionicons name="volume-high" size={20} color="#FF6F61" />
+              </Pressable>
+            </View>
+            <CustomText style={styles.definition}>{definition}</CustomText>
           </View>
-          <Text style={styles.definition}>{definition}</Text>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </ScrollView>
   );
 }
 
@@ -75,5 +74,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  cardNotLearned: {
+    backgroundColor: "#FFF", // white or light gray
   },
 });

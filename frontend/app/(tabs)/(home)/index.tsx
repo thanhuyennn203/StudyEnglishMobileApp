@@ -1,18 +1,22 @@
+import { Video } from "expo-av";
+import { useRouter } from "expo-router";
+import { useEffect, useRef, useState } from "react";
 import {
-  View,
-  Text,
+  ActivityIndicator,
+  Image,
+  Modal,
+  ScrollView,
   StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  Image,
-  ActivityIndicator,
-  Modal,
+  View,
 } from "react-native";
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "expo-router";
-import { Video } from "expo-av";
 import { useAuth } from "../../../hooks/useAuth";
+import { API_URL } from "../../../GetIp";
+import CustomText from "@/components/CustomText";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 export default function HomeScreen() {
   const [search, setSearch] = useState("");
@@ -23,63 +27,65 @@ export default function HomeScreen() {
   const router = useRouter();
   const { user } = useAuth();
 
-  const API_URL = "http://localhost:5130/api/Level"; // đổi IP nếu dùng thiết bị thật
+  useFocusEffect(
+    useCallback(() => {
+      const fetchLevels = async () => {
+        try {
+          const res = await fetch(`${API_URL}/Level`);
+          const data = await res.json();
 
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        const mappedLevels = data.map((item) => {
-          let extras = {};
-          switch (item.description) {
-            case "Beginner":
-              extras = {
-                icon: "https://cdn-icons-png.flaticon.com/128/6789/6789466.png",
-                status: "unlocked",
-                color: "#FFEBB7",
-                lessons: 10,
-              };
-              break;
-            case "Elementary":
-              extras = {
-                icon: "https://cdn-icons-png.flaticon.com/128/15599/15599432.png",
-                status: "unlocked",
-                color: "#B5EAD7",
-                lessons: 12,
-              };
-              break;
-            case "Intermediate":
-              extras = {
-                icon: "https://cdn-icons-png.flaticon.com/128/8653/8653081.png",
-                status: "unlocked",
-                color: "#FFDAC1",
-                lessons: 14,
-              };
-              break;
-            default:
-              extras = {
-                icon: "https://cdn-icons-png.flaticon.com/128/1998/1998713.png",
-                status: "locked",
-                color: "#C7CEEA",
-                lessons: 16,
-              };
-              break;
-          }
+          const mappedLevels = data.map((item) => {
+            const isUnlocked = user?.currentLevel >= item.id;
+            let extras = {};
 
-          return {
-            ...item,
-            ...extras,
-          };
-        });
+            switch (item.description) {
+              case "Beginner":
+                extras = {
+                  icon: "https://cdn-icons-png.flaticon.com/128/6789/6789466.png",
+                  color: "#FFEBB7",
+                  lessons: 10,
+                };
+                break;
+              case "Elementary":
+                extras = {
+                  icon: "https://cdn-icons-png.flaticon.com/128/15599/15599432.png",
+                  color: "#B5EAD7",
+                  lessons: 12,
+                };
+                break;
+              case "Intermediate":
+                extras = {
+                  icon: "https://cdn-icons-png.flaticon.com/128/8653/8653081.png",
+                  color: "#FFDAC1",
+                  lessons: 14,
+                };
+                break;
+              default:
+                extras = {
+                  icon: "https://cdn-icons-png.flaticon.com/128/1998/1998713.png",
+                  color: "#C7CEEA",
+                  lessons: 16,
+                };
+            }
 
-        setLevels(mappedLevels);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+            return {
+              ...item,
+              ...extras,
+              status: isUnlocked ? "unlocked" : "locked",
+            };
+          });
+
+          setLevels(mappedLevels);
+        } catch (err) {
+          console.error(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchLevels();
+    }, [user])
+  );
 
   return (
     <>
@@ -119,7 +125,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.subtitle}>Available Levels 🌟</Text>
+        <CustomText style={styles.subtitle}>Available Levels</CustomText>
 
         {loading ? (
           <ActivityIndicator size="large" color="#FF6F61" />
